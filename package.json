@@ -1,0 +1,17 @@
+{
+  "name": "@njs2/dynamodb",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "loadEnv": true,
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "scripts": {
+    "postinstall": "node ./postinstall.js --init-dir $INIT_CWD"
+  },
+  "dependencies": {
+    "@njs2/base": "^2.0.2",
+    "aws-sdk": "^2.1157.0"
+  }
+}
