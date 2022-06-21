@@ -1,17 +1,10 @@
-
-// console.log("getConnection required.", conn);
 const aws = require('aws-sdk');
-// console.log("aws imported.", conn);
 
 let conn = null;
-console.log("conn init", conn);
 
 function getConnection(){
-  console.log("getConnection called.", conn);
 
   if(conn) return conn;
-
-  console.log("connection is not available connecting..");
 
   const {
     AWS_REGION,
@@ -35,7 +28,7 @@ function getConnection(){
   let extra = {};
   if(ENDPOINT) extra.endpoint = ENDPOINT;
 
-  aws.config.updateConfig({
+  aws.config.update({
     region: AWS_REGION,
     accessKeyId: AWS_ACCESS_KEY_ID,
     secretAccessKey: AWS_SECRET_ACCESS_KEY,
@@ -44,10 +37,8 @@ function getConnection(){
 
   conn = new aws.DynamoDB.DocumentClient();
 
-  console.log("connected ", conn);
-
   return conn;  
 
 }
 
-module.exports = getConnection;
+module.exports = {getConnection};
