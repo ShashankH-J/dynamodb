@@ -5,6 +5,7 @@ const LIBRARY_NAME = process.env.npm_package_name;
 const EXEC_DIR = process.argv.slice(2)[process.argv.slice(2).indexOf("--init-dir") + 1];
 
 const initEnv = async () => {
+  console.log("running post-install ", LIBRARY_NAME, __dirname)
   let envFileContents = fs.readFileSync(path.resolve(EXEC_DIR, `node_modules/${LIBRARY_NAME}/env.json`), 'utf8');
   let projectEnvFileContents = fs.readFileSync(path.resolve(EXEC_DIR, `src/config/config.json`), 'utf8');
   envFileContents = JSON.parse(envFileContents);
