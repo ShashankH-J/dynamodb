@@ -1,10 +1,6 @@
 const aws = require('aws-sdk');
 
-let conn = null;
-
-function getConnection(){
-
-  if(conn) return conn;
+function connect(){
 
   const {
     AWS_REGION,
@@ -35,10 +31,6 @@ function getConnection(){
     ...extra,
   });
 
-  conn = new aws.DynamoDB.DocumentClient();
-
-  return conn;  
-
 }
 
-module.exports = {getConnection};
+module.exports = {connect};
