@@ -1,5 +1,4 @@
 
-console.log("in Dyn Constructor");
 const awsConn = require("./helper/awsConnect");
 
 
